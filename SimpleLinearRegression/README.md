@@ -1,62 +1,42 @@
-# Maaş Tahmin Projesi
+# Deneyime Dayalı Maaş Tahmini Uygulaması
 
-Bu proje, basit lineer regresyon algoritması kullanılarak geliştirilmiş bir maaş tahmin uygulamasıdır. Kullanıcıdan alınan iş deneyimi yılı bilgisine göre model bir maaş tahmini yapar ve FastAPI üzerinden JSON formatında yanıt döndürür. Arayüz ise FastAPI endpoint'ine istek göndererek tahmin sonucunu interaktif şekilde gösterir.
+## Açıklama
 
+Bu proje, basit bir lineer regresyon modeli kullanarak kullanıcının girdiği iş deneyimi yılına göre maaş tahmini yapan interaktif bir web uygulamasıdır.
 
-## Gereksinimler
+## Özellikler
 
-- Python 3.7+
-- `requirements.txt` dosyasında belirtilen bağımlılıklar
-- Proje kökünde `model.pkl` dosyasının bulunması
+-   Önceden eğitilmiş regresyon modelini (`model.pkl`) yükler.
+-   İş deneyimi yılı girişi için interaktif sayısal alan.
+-   Yüklenen regresyon modelini kullanarak maaş tahmini yapar.
+-   Tahmin edilen ücreti kullanıcıya gösterir.
+
+## Dosyalar
+
+- `main.py`: Kullanıcı arayüzünü ve tahmin mantığını çalıştıran ana Streamlit uygulama betiği.
+- `model.pkl`: Maaş tahmini için kullanılan kaydedilmiş basit doğrusal regresyon modeli.
+- `requirements.txt`: Gerekli Python kütüphanelerini listeler.
+- `analysis.ipynb`: Veri analizi, model eğitimi ve `.pkl` dosyalarının kaydedilmesi için kullanılan Jupyter not defteri (çalışma zamanı uygulamasının bir parçası değildir).
 
 ## Kurulum
 
-1. Depoyu klonlayın:
-   ```bash
-   git clone https://github.com/hanifekaptan/AIAgentCourseWork.git
-   cd AIAgentCourseWork/SimpleLinearRegression
-   ```
-2. Bağımlılıkları yükleyin:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. `model.pkl` dosyasının proje kökünde olduğundan emin olun.
+1.  **Depoyu Klonlayın:**
+    ```bash
+    git clone https://github.com/hanifekaptan/AIAgentCourseWork.git
+    cd AIAgentCourseWork/SimpleLinearRegression
+    ```
 
-## Uygulamayı Çalıştırma
+2.  **Bağımlılıkları Yükleyin:**
+    Gerekli kütüphaneleri yüklemek için:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-```bash
-streamlit run main.py
-```
+## Uygulamayı Çalıştır
 
-Bu komut, arayüze ihtiyaç duyacağınız FastAPI sunucusunu (`uvicorn api:app --reload`) ve Streamlit arayüzünü aynı anda başlatır.
-
-Uygulama ve arayüz `http://localhost:8501` adresinde çalışacaktır.
-
-## API Dokümantasyonu
-
-Swagger UI'a şu adresten ulaşabilirsiniz:
-
-```
-http://127.0.0.1:8000/docs
-```
-
-## Tahmin Uç Noktası
-
-- **URL**: `/predict`
-- **Metot**: `POST`
-- **İstek Gövdesi**:
-  ```json
-  {
-    "YearsExperience": 5.0
-  }
-  ```
-- **Yanıt**:
-  ```json
-  {
-    "prediction": 70000.0
-  }
-  ```
-
-## Lisans
-
-Bu proje MIT Lisansı ile lisanslanmıştır. 
+1.  Gerekli dosyaların (`main.py`, `model.pkl`, `requirements.txt`) proje dizininde olduğundan emin olun.
+2.  Streamlit uygulamasını terminalinizden çalıştırın:
+    ```bash
+    streamlit run main.py
+    ```
+3.  Uygulama web tarayıcınızda açılacaktır. Araç özelliklerini girin ve tahmini almak için "Tahmin Et" düğmesine tıklayın.
