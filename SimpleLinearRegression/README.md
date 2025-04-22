@@ -1,6 +1,7 @@
-# Maaş Tahmini
+# Maaş Tahmin Projesi
 
-Önceden eğitilmiş bir model kullanarak iş deneyimi yılına göre maaş tahmini yapan basit bir FastAPI uygulamasıdır.
+Bu proje, basit lineer regresyon algoritması kullanılarak geliştirilmiş bir maaş tahmin uygulamasıdır. Kullanıcıdan alınan iş deneyimi yılı bilgisine göre model bir maaş tahmini yapar ve FastAPI üzerinden JSON formatında yanıt döndürür. Arayüz ise FastAPI endpoint'ine istek göndererek tahmin sonucunu interaktif şekilde gösterir.
+
 
 ## Gereksinimler
 
@@ -23,13 +24,13 @@
 
 ## Uygulamayı Çalıştırma
 
-FastAPI sunucusunu Uvicorn ile başlatın:
-
 ```bash
-uvicorn main:app --reload
+streamlit run main.py
 ```
 
-Uygulama `http://127.0.0.1:8000` adresinde çalışacaktır.
+Bu komut, arayüze ihtiyaç duyacağınız FastAPI sunucusunu (`uvicorn api:app --reload`) ve Streamlit arayüzünü aynı anda başlatır.
+
+Uygulama ve arayüz `http://localhost:8501` adresinde çalışacaktır.
 
 ## API Dokümantasyonu
 
