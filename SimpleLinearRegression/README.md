@@ -23,7 +23,7 @@ Bu proje, basit bir lineer regresyon modeli kullanarak kullanıcının girdiği 
 1.  **Depoyu Klonlayın:**
     ```bash
     git clone https://github.com/hanifekaptan/AIAgentCourseWork.git
-    cd AIAgentCourseWork/SimpleLinearRegression
+    cd SimpleLinearRegression
     ```
 
 2.  **Bağımlılıkları Yükleyin:**
